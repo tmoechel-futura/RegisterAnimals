@@ -4,7 +4,7 @@ using RegisterAnimals.Repositories;
 
 Console.WriteLine("Welcome to the Animal Registration App!");
 
-var animalRepository = new AnimalRepository();
+var animalRepository = new AnimalRepository<Animal> ();
 string animalInput = string.Empty;
 do
 {
@@ -13,11 +13,11 @@ do
 
     if (animalInput != null && animalInput.ToLower() == "e")
     {
-        animalRepository.AddElefant(new Elefant());
+        animalRepository.AddAnimal(new Elefant() { Id = Guid.NewGuid()});
     }
     else if (animalInput != null && animalInput == "l")
     {
-        animalRepository.AddLion(new Lion());
+        animalRepository.AddAnimal(new Lion() { Id = Guid.NewGuid() });
     }
     else if (animalInput != null && animalInput == "x")
     {

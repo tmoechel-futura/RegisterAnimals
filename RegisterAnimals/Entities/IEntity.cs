@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace RegisterAnimals.Entities
 {
-    internal class Lion: Animal
+    internal interface IEntity
     {
+        public Guid Id { get; set; }
     }
 }

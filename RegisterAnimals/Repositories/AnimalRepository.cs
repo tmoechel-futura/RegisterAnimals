@@ -7,24 +7,23 @@ using System.Threading.Tasks;
 
 namespace RegisterAnimals.Repositories
 {
-    internal class AnimalRepository
+    internal class AnimalRepository<T> where T : Animal
     {
-        List<Lion> lions = new List<Lion>();
-        List<Elefant> elefants = new List<Elefant>();
+        List<Animal> animals = new List<Animal>();
 
-        public void AddLion(Lion lion)
+        public void AddAnimal(Animal animal)
         {
-            lions.Add(lion);
+            animals.Add(animal);
         }
 
-        public void AddElefant(Elefant elefant)
-        {
-            elefants.Add(elefant);
+        public int GetLionCount() { 
+            return animals.Where( animal => animal is Lion).Count(); 
         }
 
-        public int GetLionCount() { return lions.Count; }
-        public int GetElefantCount() { return elefants.Count; }
-
+        public int GetElefantCount()
+        {
+            return animals.Where(animal => animal is Elefant).Count();
+        }
 
     }
 }
