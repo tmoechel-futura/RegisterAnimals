@@ -11,8 +11,6 @@ do
     Console.WriteLine("Which Animal did you see? Press L for a lion and E for an elefant. Press X to exit!");
     animalInput = Console.ReadLine();
 
-    
-
     if (animalInput != null && animalInput.ToLower() == "e")
     {
         animalRepository.AddElefant(new Elefant());
