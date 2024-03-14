@@ -1,6 +1,6 @@
 ﻿namespace RegisterAnimals.Entities
 {
-    internal class Animal : EntityBase
+    public class Animal : EntityBase
     {
     }
 }

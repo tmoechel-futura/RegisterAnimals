@@ -4,35 +4,30 @@ using RegisterAnimals.Repositories;
 
 Console.WriteLine("Welcome to the Animal Registration App!");
 
-var animalRepository = new AnimalRepository<Animal> ();
-string animalInput = string.Empty;
-do
-{
-    Console.WriteLine("Which Animal did you see? Press L for a lion and E for an elefant. Press X to exit!");
-    animalInput = Console.ReadLine();
+// understand object assignment
+Animal animal = new Zebra();  // OK  a Zebra is animal
 
-    if (animalInput != null && animalInput.ToLower() == "e")
-    {
-        animalRepository.AddAnimal(new Elefant() { Id = Guid.NewGuid()});
-    }
-    else if (animalInput != null && animalInput == "l")
-    {
-        animalRepository.AddAnimal(new Lion() { Id = Guid.NewGuid() });
-    }
-    else if (animalInput != null && animalInput == "x")
-    {
-        continue;
-    }
-    else
-    {
-        Console.WriteLine("Please type an E for Elefant or an L for Lion");
-    }
-}
-while (animalInput.ToLower() != "x");
-
-Console.WriteLine($"Number of Lions: {animalRepository.GetLionCount()}");
-Console.WriteLine($"Number of Elefants: {animalRepository.GetElefantCount()}");
+// Zebra zebra = new Animal();  // NOT OK not every animal is a Zebra, so an Animal is not generally a Zebra
 
 
+
+// understand Covariance
+ICage<Animal> animalCage = new Cage<Animal>();  // OK Interface Types are non varian
+
+
+ICage<Animal> lionCage = new Cage<Lion>();  // OK if Interface Defintion for T is Covariant
+
+//IPushCage<Lion> lionCage = new Cage<Lion>();  // OK
+
+
+Lion lion = new Lion() { Name = "Lion"};
+Zebra zebra = new Zebra() { Name = "Zebra" };
+
+lionCage.AddAnimal(zebra);
+lionCage.AddAnimal(lion);
+
+var firstAnimal = lionCage.GetFirstAnimalInCage();
+
+Console.WriteLine(firstAnimal.Name);
 
 
