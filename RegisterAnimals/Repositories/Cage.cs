@@ -16,6 +16,11 @@ namespace RegisterAnimals.Repositories
             animals.Add(animal);
         }
 
+        public void AddLion(Lion lion)
+        {
+            animals.Add(lion);
+        }
+
         public T GetFirstAnimalInCage() 
         {
             return (T)animals.First();

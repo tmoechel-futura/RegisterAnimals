@@ -8,9 +8,11 @@ using System.Threading.Tasks;
 namespace RegisterAnimals.Repositories
 {
     
-    public interface ICage<T> where T : Animal
+    public interface ICage<out T> where T : Animal
     {
-        public void AddAnimal(T animal);
+        //public void AddAnimal(T animal); this will not work yet
+
+        void AddLion(Lion lion);
         T GetFirstAnimalInCage();
 
     }

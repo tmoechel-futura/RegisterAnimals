@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RegisterAnimals.Entities
 {
-    internal class Lion: Animal
+    public class Lion: Animal
     {
     }
 }
