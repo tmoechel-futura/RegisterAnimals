@@ -7,18 +7,20 @@ using System.Threading.Tasks;
 
 namespace RegisterAnimals.Repositories
 {
-    
-    public interface IPushAnimal<in T> where T: Animal
+
+    public interface IChangeCage<in T> where T : Animal
     {
-        public void AddAnimal(T animal); 
+        public void AddAnimal(T animal);
     }
 
-    public interface IListAnimal<out T> where T : Animal
+    public interface IReadCage<out T> where T : Animal
     {
         T GetFirstAnimalInCage();
     }
 
-    public interface ICage<T> : IListAnimal<T>, IPushAnimal<T> where T : Animal
-    {       
+    public interface ICage<T> : IReadCage<T>, IChangeCage<T> where T : Animal
+    {
+        T GetFirstAnimalInCage();
+        public void AddAnimal(T animal); 
     }
 }
