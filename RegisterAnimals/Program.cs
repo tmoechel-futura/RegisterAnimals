@@ -20,32 +20,32 @@ Console.WriteLine("Welcome to the Animal Registration App!");
 // In a covariant Animal Cage you can read all the animals of the cage but you should not be able to add a differnet specific type
 // into the Cage because you would then have different specific types (lions and zebras) in the cage.
 
-IReadCage<Animal> cage = new Cage<Lion>();  // OK if IReadCage<T> is covariant
-
-IChangeCage<Lion> lionCage = new Cage<Animal>(); // Now you can pass in a morevar specific type as the generic interface type
+ICage<Animal> animalCage = new Cage<Animal>(); // Now you can pass in a morevar specific type as the generic interface type
 
 Lion simba = new Lion() { Name = "Simba"};
 Lion Johny = new Lion() { Name = "Johny" };
 
+Zebra sally = new Zebra { Name = "Sally" };
+
 // If the interface ICage<T> is covariant and contravariant I can use the AddAnimal method 
 // which on an Cage<Lion> will not allow to add Zebras
 
+AddLionsToCage(animalCage);
+GetFirstAnimalInTheCage(animalCage);
 
-AddAnimalsToCage(lionCage);
-GetFirstAnimalInTheCage(cage);
-
-void AddAnimalsToCage(IChangeCage<Lion> cage)
+// I want to add a specific type of animal to the the cage
+void AddLionsToCage(IChangeCage<Lion> cage)  // -> I am passing here a more specific type which works when the interface is contravariant
 {
     // those methods will not work if the interface is only covariant
     cage.AddAnimal(simba);
     cage.AddAnimal(Johny);
+    //cage.AddAnimal(sally);  // this will not work because the cage is a Lions Cage !
 }
 
 
 // I want to get the first animal in the cage
 // no matter if it is a cage with lions or a cage with zebras
-// so the paramter type should be ICage<Animal>
-void GetFirstAnimalInTheCage(IReadCage<Animal> cage)
+void GetFirstAnimalInTheCage(IReadCage<Animal> cage)  // -> I am passing here a less specific type which works when the interface is covariant
 {
     var firstAnimal = cage.GetFirstAnimalInCage();
     Console.WriteLine(firstAnimal.Name);
