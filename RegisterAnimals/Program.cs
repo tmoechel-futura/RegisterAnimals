@@ -17,11 +17,13 @@ Animal animal = new Zebra();  // OK  a Zebra is animal
 /// ****************************************** //
 /// 
 
-// I want to put animal into a Cage<T> 
-ICage<Animal> animalCage = new Cage<Animal>();  // OK Interface Types are non variant
+// I want to put animal into a Cage<T> #
+// OK Interface Types are invariant -> means the generic type interface must be the same type as the type 
+// of the created class here new Cage<Animal>();
+ICage<Animal> animalCage = new Cage<Animal>();  
 
-// This does not work, if I create a Zebra cage I can not put any animals inside  
-// ICage<Animal> animalCage = new Cage<Zebra>();  // OK Interface Types are non variant
+
+// ICage<Animal> cage = new Cage<Zebra>();  // not OK Interface Types are different 
 
 
 Lion lion = new Lion() { Name = "Lion"};
