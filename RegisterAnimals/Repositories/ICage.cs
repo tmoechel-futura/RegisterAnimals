@@ -19,8 +19,6 @@ namespace RegisterAnimals.Repositories
     }
 
     public interface ICage<T> : IReadCage<T>, IChangeCage<T> where T : Animal
-    {
-        T GetFirstAnimalInCage();
-        public void AddAnimal(T animal); 
+    {       
     }
 }
