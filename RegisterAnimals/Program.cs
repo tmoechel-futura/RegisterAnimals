@@ -12,15 +12,13 @@ Console.WriteLine("Welcome to the Animal Registration App!");
 // I create a cage for Lions
 IReadCage<Animal> cage = new Cage<Lion>();  // OK if IReadCage<T> is covariant
 
+// Example of contravariance because the generic interface type is more specific -> a Lion is more specific then an Animal
 IChangeCage<Lion> lionCage = new Cage<Animal>(); // Now you can pass in a morevar specific type as the generic interface type
 
 Lion simba = new Lion() { Name = "Simba"};
 Lion Johny = new Lion() { Name = "Johny" };
 
-// If the interface ICage<T> is covariant and contravariant I can use the AddAnimal method 
-// which on an Cage<Lion> will not allow to add Zebras
-
-
+// I am using here 2 different cages which is not so nice -> but is resolved in branch AnimalCage_4
 AddAnimalsToCage(lionCage);
 GetFirstAnimalInTheCage(cage);
 
