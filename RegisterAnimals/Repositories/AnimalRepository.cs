@@ -7,13 +7,18 @@ using System.Threading.Tasks;
 
 namespace RegisterAnimals.Repositories
 {
-    internal class AnimalRepository<T> where T : Animal
+    internal class AnimalRepository<T> where T : Animal, new()
     {
         List<T> animals = new List<T>();
 
         public void AddAnimal(T animal)
         {
             animals.Add(animal);
+        }
+
+        public T CreateAnimal()
+        {
+            return new T();
         }
 
         public int GetLionCount() { 
