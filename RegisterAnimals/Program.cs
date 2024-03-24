@@ -15,11 +15,11 @@ do
     {
         animalRepository.AddElefant(new Elefant());
     }
-    else if (animalInput != null && animalInput == "l")
+    else if (animalInput != null && animalInput.ToLower() == "l")
     {
         animalRepository.AddLion(new Lion());
     }
-    else if (animalInput != null && animalInput == "x")
+    else if (animalInput != null && animalInput.ToLower() == "x")
     {
         continue;
     }
