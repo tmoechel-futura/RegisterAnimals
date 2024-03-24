@@ -8,12 +8,12 @@ var animalRepository = new AnimalRepository<Animal> ();
 string animalInput = string.Empty;
 do
 {
-    Console.WriteLine("Which Animal did you see? Press L for a lion and E for an elefant. Press X to exit!");
+    Console.WriteLine("Which Animal did you see? Press L for a lion and E for an elephant. Press X to exit!");
     animalInput = Console.ReadLine();
 
     if (animalInput != null && animalInput.ToLower() == "e")
     {
-        animalRepository.AddAnimal(new Elefant() { Id = Guid.NewGuid()});
+        animalRepository.AddAnimal(new Elephant() { Id = Guid.NewGuid()});
     }
     else if (animalInput != null && animalInput == "l")
     {
@@ -25,13 +25,13 @@ do
     }
     else
     {
-        Console.WriteLine("Please type an E for Elefant or an L for Lion");
+        Console.WriteLine("Please type an E for Elephant or an L for Lion");
     }
 }
 while (animalInput.ToLower() != "x");
 
 Console.WriteLine($"Number of Lions: {animalRepository.GetLionCount()}");
-Console.WriteLine($"Number of Elefants: {animalRepository.GetElefantCount()}");
+Console.WriteLine($"Number of Elephants: {animalRepository.GetElephantCount()}");
 
 
 
