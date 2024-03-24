@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace RegisterAnimals.Repositories
 {
-    internal class AnimalRepository<T> where T : Animal
+    internal class AnimalRepository<T> : IAnimalRepository<T> where T : Animal
     {
         List<T> animals = new List<T>();
 

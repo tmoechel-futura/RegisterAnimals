@@ -4,7 +4,7 @@ using RegisterAnimals.Repositories;
 
 Console.WriteLine("Welcome to the Animal Registration App!");
 
-var animalRepository = new AnimalSqlRepository<Animal>(new RegisterAnimals.Data.AnimalDbContext());
+var animalRepository = new AnimalRepository<Animal>();
 
 string animalInput = string.Empty;
 do
@@ -33,7 +33,7 @@ while (animalInput.ToLower() != "x");
 
 OutputAnimalCounts(animalRepository);
 
-void OutputAnimalCounts(AnimalSqlRepository<Animal> animalRepository)
+void OutputAnimalCounts(IAnimalRepository<Animal> animalRepository)
 {
     Console.WriteLine($"Number of Lions: {animalRepository.GetLionCount()}");
     Console.WriteLine($"Number of Elephants: {animalRepository.GetElephantCount()}");

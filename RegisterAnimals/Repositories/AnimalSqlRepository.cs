@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace RegisterAnimals.Repositories
 {
-    internal class AnimalSqlRepository<T> where T : Animal
+    internal class AnimalSqlRepository<T> : IAnimalRepository<T> where T : Animal
 
     {
         private readonly AnimalDbContext _dbContext;

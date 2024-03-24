@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace RegisterAnimals.Repositories
 {
-    internal interface IAnimalRepository<T> where T: class
+    internal interface IAnimalRepository<T> where T: Animal
     {
         public void AddAnimal(T animal);
 
