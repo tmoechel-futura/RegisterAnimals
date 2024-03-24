@@ -20,9 +20,9 @@ namespace RegisterAnimals.Repositories
             return animals.Where( animal => animal is Lion).Count(); 
         }
 
-        public int GetElefantCount()
+        public int GetElephantCount()
         {
-            return animals.Where(animal => animal is Elefant).Count();
+            return animals.Where(animal => animal is Elephant).Count();
         }
     }
 }
