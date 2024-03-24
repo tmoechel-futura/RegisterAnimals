@@ -10,20 +10,20 @@ namespace RegisterAnimals.Repositories
     internal class AnimalRepository
     {
         List<Lion> lions = new List<Lion>();
-        List<Elefant> elefants = new List<Elefant>();
+        List<Elephant> elephants = new List<Elephant>();
 
         public void AddLion(Lion lion)
         {
             lions.Add(lion);
         }
 
-        public void AddElefant(Elefant elefant)
+        public void AddElefant(Elephant elephant)
         {
-            elefants.Add(elefant);
+            elephants.Add(elephant);
         }
 
         public int GetLionCount() { return lions.Count; }
-        public int GetElefantCount() { return elefants.Count; }
+        public int GetElephantCount() { return elephants.Count; }
 
 
     }

@@ -13,7 +13,7 @@ do
 
     if (animalInput != null && animalInput.ToLower() == "e")
     {
-        animalRepository.AddElefant(new Elefant());
+        animalRepository.AddElefant(new Elephant());
     }
     else if (animalInput != null && animalInput.ToLower() == "l")
     {
@@ -31,7 +31,7 @@ do
 while (animalInput.ToLower() != "x");
 
 Console.WriteLine($"Number of Lions: {animalRepository.GetLionCount()}");
-Console.WriteLine($"Number of Elefants: {animalRepository.GetElefantCount()}");
+Console.WriteLine($"Number of Elefants: {animalRepository.GetElephantCount()}");
 
 
 
