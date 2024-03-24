@@ -9,6 +9,7 @@ namespace RegisterAnimals.Repositories
 {
     internal interface IAnimalRepository<T> where T: Animal
     {
+        public IEnumerable<Animal> GetAllAnimals();
         public void AddAnimal(T animal);
 
         public int GetLionCount();

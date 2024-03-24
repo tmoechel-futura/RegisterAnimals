@@ -37,6 +37,7 @@ void OutputAnimalCounts(IAnimalRepository<Animal> animalRepository)
 {
     Console.WriteLine($"Number of Lions: {animalRepository.GetLionCount()}");
     Console.WriteLine($"Number of Elephants: {animalRepository.GetElephantCount()}");
+    Console.WriteLine($"Number of Animals: {animalRepository.GetAllAnimals().Count()}");
 }
 
 

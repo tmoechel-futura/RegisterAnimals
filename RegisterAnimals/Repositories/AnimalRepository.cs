@@ -24,5 +24,10 @@ namespace RegisterAnimals.Repositories
         {
             return animals.Where(animal => animal is Elephant).Count();
         }
+
+        public IEnumerable<Animal> GetAllAnimals()
+        {
+            return animals.ToList();
+        }
     }
 }
