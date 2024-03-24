@@ -29,18 +29,16 @@ namespace RegisterAnimals.Repositories
 
         public int GetElephantCount()
         {
-            // Query the number of Elephants
             int numberOfElephants = _dbSet
-                .OfType<Elephant>() // Filter by Elephant type
+                .OfType<Elephant>() 
                 .Count();
             return numberOfElephants;
         }
 
         public int GetLionCount()
         {
-            // Query the number of Elephants
             int numberOfElephants = _dbSet
-                .OfType<Lion>() // Filter by Elephant type
+                .OfType<Lion>()
                 .Count();
             return numberOfElephants;
         }
