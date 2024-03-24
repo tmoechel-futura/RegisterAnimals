@@ -9,9 +9,9 @@ namespace RegisterAnimals.Repositories
 {
     internal class AnimalRepository<T> where T : Animal
     {
-        List<Animal> animals = new List<Animal>();
+        List<T> animals = new List<T>();
 
-        public void AddAnimal(Animal animal)
+        public void AddAnimal(T animal)
         {
             animals.Add(animal);
         }
@@ -24,6 +24,5 @@ namespace RegisterAnimals.Repositories
         {
             return animals.Where(animal => animal is Elefant).Count();
         }
-
     }
 }
